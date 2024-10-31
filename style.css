@@ -1,0 +1,368 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header */
+header {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  
+}
+
+.logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav a {
+
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffd700;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(135deg, #0066cc 50%, #1e90ff 50%);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.banner-media img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* About Section */
+.about, .schedule, .registration-form {
+    background: #fff;
+    padding: 40px 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0066cc;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* Schedule */
+.schedule ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.schedule li {
+    background: #e6f7ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.schedule li strong {
+    color: #0066cc;
+}
+
+/* Registration Form */
+.registration-form form {
+    display: grid;
+    gap: 15px;
+}
+
+.registration-form label {
+    font-weight: bold;
+}
+
+.registration-form input, .registration-form button {
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.registration-form input:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+
+.registration-form button {
+    background-color: #0066cc;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registration-form button:hover {
+    background-color: #004999;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* Add Animations */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Dark Theme Styles */
+body[data-theme="dark"] {
+    color: #f0f0f0;
+    background-color: #121212;
+}
+
+/* Header */
+header {
+    background-color: #0066cc;
+    color: #fff;
+}
+
+body[data-theme="dark"] header {
+    background-color: #333;
+}
+
+/* Links in Header */
+nav a {
+    color: #fff;
+}
+
+body[data-theme="dark"] nav a {
+    color: #ffd700;
+}
+
+
+
+/* For Changing Themes  */
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+body[data-theme="dark"] .theme-toggle {
+    color: #ffd700;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(135deg, #0066cc 50%, #1e90ff 50%);
+    color: #fff;
+}
+
+body[data-theme="dark"] .banner {
+    background: linear-gradient(135deg, #333 50%, #555 50%);
+    color: #ffd700;
+}
+
+/* About, Schedule, and Registration Sections */
+.about, .schedule, .registration-form {
+    background: #fff;
+    color: #333;
+}
+
+body[data-theme="dark"] .about,
+body[data-theme="dark"] .schedule,
+body[data-theme="dark"] .registration-form {
+    background: #1e1e1e;
+    color: #f0f0f0;
+}
+
+h2 {
+    color: #0066cc;
+}
+
+body[data-theme="dark"] h2 {
+    color: #ffd700;
+}
+
+/* Registration Form */
+.registration-form input,
+.registration-form button {
+    background: #f9f9f9;
+    color: #333;
+}
+
+body[data-theme="dark"] .registration-form input,
+body[data-theme="dark"] .registration-form button {
+    background: #333;
+    color: #f0f0f0;
+}
+
+.registration-form button {
+    background-color: #0066cc;
+}
+
+body[data-theme="dark"] .registration-form button {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #0066cc;
+    color: #fff;
+}
+
+body[data-theme="dark"] footer {
+    background-color: #333;
+    color: #ffd700;
+}
+
+
+
+/* Slider  */
+
+.slider {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Slide */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual Slide */
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img, .slide video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+
+
+/* Mobile View */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Stack logos and nav links */
+    .logo {
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    /* Center navigation links */
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Smaller font for navigation links on mobile */
+    nav a {
+        font-size: 1.2em;
+    }
+
+    /* Reduce toggle button size on mobile */
+    .theme-toggle {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+}
+

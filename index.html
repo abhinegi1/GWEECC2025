@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GWEECC 2025 Event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>x
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="FLogo.png" alt="Event Logo" class="logo">
+            <img  src="file.png" alt="Partner Logo" class="logo">
+            <nav>
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#register">Register</a>
+            </nav>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle">
+                🌞
+            </button>
+        </div>
+    </header>
+
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>GWEECC 2025</h1>
+            <div class="banner-media">
+                <div class="slider">
+                    <div class="slides">
+                        <!-- Slide 1: Image -->
+                        <div class="slide">
+                            <img src="image1.jpg" alt="Event Image 1">
+                        </div>
+                        <!-- Slide 2: Video -->
+                        <!-- <div class="slide">
+                            <video src="video1.mp4" autoplay muted loop></video>
+                        </div> -->
+                        <!-- Slide 3: Image -->
+                        <div class="slide">
+                            <img src="image2.jpg" alt="Event Image 2">
+                        </div>
+                        <div class="slide">
+                            <img src="image3.jpg" alt="Event Image 2">
+                        </div>
+                        <!-- Slide 4: Video -->
+                        <!-- <div class="slide">
+                            <video src="video2.mp4" autoplay muted loop></video>
+                        </div> -->
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <button class="prev" onclick="prevSlide()">❮</button>
+                    <button class="next" onclick="nextSlide()">❯</button>
+                </div>
+
+            </div>
+            <p>Join us on [Event Date] at [Venue]</p>
+        </div>
+    </section>
+
+    <!-- About the Event -->
+    <section id="about" class="about">
+        <h2>About the Event</h2>
+        <p>GWEECC 2025 brings together industry leaders, professionals, and enthusiasts to discuss the latest trends and
+            advancements. Don’t miss this opportunity to learn and network!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae vel ex similique eaque labore amet ipsa, eos
+            accusamus praesentium ab rem voluptas excepturi laudantium debitis odit laboriosam harum. Nisi sapiente odit
+            facilis. Repudiandae inventore dicta laborum libero? Quod numquam optio nam velit atque sint, architecto
+            praesentium accusamus modi tempora minima error aliquid omnis vero!
+        </p>
+    </section>
+
+    <!-- Event Schedule -->
+    <section id="schedule" class="schedule">
+        <h2>Event Schedule</h2>
+        <ul>
+            <li><strong>Day 1:</strong> Keynote and Opening Sessions</li>
+            <li><strong>Day 2:</strong> Workshops and Panel Discussions</li>
+            <li><strong>Day 3:</strong> Closing Ceremony</li>
+        </ul>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register" class="registration-form">
+        <h2>Register for the Event</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contact">Contact No.:</label>
+            <input type="text" id="contact" name="contact" required>
+
+            <label for="organization">Organization:</label>
+            <input type="text" id="organization" name="organization" required>
+
+            <label for="delegates">No. of Delegates:</label>
+            <input type="number" id="delegates" name="delegates" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 GWEECC. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Fade-in effect for sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const revealSection = () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < window.innerHeight - 100) {
+                        section.classList.add('visible');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealSection);
+            revealSection();
+        });
+
+        // Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+
+            // Apply the saved theme on load
+            document.body.setAttribute('data-theme', currentTheme);
+            themeToggle.textContent = currentTheme === 'dark' ? '🌙' : '🌞';
+
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                document.body.setAttribute('data-theme', newTheme);
+                themeToggle.textContent = newTheme === 'dark' ? '🌙' : '🌞';
+
+                // Save the user's theme preference
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+
+
+
+        //slider 
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            // Wrap around the index
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Move slides container to show the current slide
+            document.querySelector('.slides').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+
+
+
+    </script>
+</body>
+
+</html>
